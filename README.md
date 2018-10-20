@@ -1,1 +1,1 @@
-# testaGit
+# 0 projeto ***testaGit*** foi utilizado para testar as funcionalidade do gitHub. 
