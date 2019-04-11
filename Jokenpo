@@ -1,0 +1,126 @@
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import javax.swing.ButtonGroup;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
+
+public class Questao3 extends JFrame implements ActionListener, ItemListener{
+	JLabel label1;
+	JRadioButton opcao1, opcao2, opcao3;
+	ButtonGroup grupo1;
+	@Override
+	public void itemStateChanged(ItemEvent arg0) {
+		JFrame janela = new Questao3();
+		janela.setVisible(true);
+		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	
+	public Questao3() {
+		setTitle("");
+		setBounds(200,200,200,200);
+		getContentPane().setBackground(new Color(150,150,150));
+		getContentPane().setLayout(new GridLayout(5,1));
+		label1 = new JLabel("Pedra, Papel, Tesoura:");
+		label1.setForeground(Color.black);
+		label1.setFont(new Font("Arial", Font.BOLD,14));
+		opcao1 = new JRadioButton("Pedra");
+		opcao1.addItemListener(this);
+		opcao2 = new JRadioButton("Papel");
+		opcao2.addItemListener(this);
+		opcao3 = new JRadioButton("Tesoura");
+		opcao3.addItemListener(this);
+		grupo1 = new ButtonGroup();
+		grupo1.add(opcao1);
+		grupo1.add(opcao2);
+		grupo1.add(opcao3);
+		getContentPane().add(label1);
+		getContentPane().add(opcao1);
+		getContentPane().add(opcao2);
+		getContentPane().add(opcao3);	
+	}
+	
+	public static int randInt(int min, int max) {
+		java.util.Random rand = new java.util.Random();
+		int randomNum = rand.nextInt((max - min) +1) + min;
+		return randomNum;
+	}
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public void ItemStateChanged(ItemEvent e) {
+		int JogadoPessoa, Jogadocomputador;
+		
+		if(opcao1.isSelected()) {
+			JogadoPessoa = 0;
+			Jogadocomputador = randInt(0, 2);
+			
+		if(Jogadocomputador == 0) {
+			JOptionPane.showMessageDialog(null, "Você: pedra \nMaquina: Pedra \n Empate");
+		}
+		
+	    else if(Jogadocomputador == 1) {
+				JOptionPane.showMessageDialog(null, "Você: pedra \nMaquina: Papel \n Você Perdeu");	
+		}
+		
+	    else if(Jogadocomputador == 2) {
+			JOptionPane.showMessageDialog(null, "Você: pedra \nMaquina: Tesoura \n Você Ganhou");	
+			opcao1.setSelected(false);
+			grupo1.clearSelection();
+	    }
+		
+	    else if(opcao2.isSelected()) {
+	    	JogadoPessoa = 1;
+			Jogadocomputador = randInt(0, 2);
+			
+		if(Jogadocomputador == 0) {
+			JOptionPane.showMessageDialog(null, "Você: pedra \nMaquina: Pedra \n Empate");
+		}
+		
+	    else if(Jogadocomputador == 1) {
+				JOptionPane.showMessageDialog(null, "Você: pedra \nMaquina: Papel \n Você Perdeu");	
+		}
+		
+	    else if(Jogadocomputador == 2) {
+			JOptionPane.showMessageDialog(null, "Você: pedra \nMaquina: Tesoura \n Você Ganhou");	
+		
+	    }
+		
+		opcao2.setSelected(false);
+		grupo1.clearSelection();
+	    
+	    }
+		
+	    else if(opcao3.isSelected()) {
+	    	JogadoPessoa = 2;
+			Jogadocomputador = randInt(0, 2);
+			
+		if(Jogadocomputador == 0) {
+			JOptionPane.showMessageDialog(null, "Você: pedra \nMaquina: Pedra \n Empate");
+		}
+		
+	    else if(Jogadocomputador == 1) {
+				JOptionPane.showMessageDialog(null, "Você: pedra \nMaquina: Papel \n Você Perdeu");	
+		}
+		
+	    else if(Jogadocomputador == 2) {
+			JOptionPane.showMessageDialog(null, "Você: pedra \nMaquina: Tesoura \n Você Ganhou");	
+		
+	    }
+		
+		opcao3.setSelected(false);
+		grupo1.clearSelection();
+	    
+	    }
+		
+		}
+		}
+}
